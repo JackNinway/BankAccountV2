@@ -6,6 +6,7 @@ class CustomerTest {
 
     @org.junit.jupiter.api.Test
     void getCustomerInfo() {
+
         //Arrange
         Customer jn = new Customer(11, "Jack Ninway",  "jn@jn.se");
         String expectedStr = "";

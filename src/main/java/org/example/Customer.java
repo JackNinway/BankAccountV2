@@ -13,7 +13,6 @@ public class Customer {
     }
     public String getCustomerInfo(){
             return "id: " + iD + " name: " + name + " email: " + email;
-
     }
     public int getiD() {
         return iD;
