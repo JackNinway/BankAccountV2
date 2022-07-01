@@ -10,11 +10,11 @@ class CustomerTest {
         //Arrange
         Customer jn = new Customer(11, "Jack Ninway",  "jn@jn.se");
         String expectedStr = "";
-        String setPerson = "id: 11 name: Jack Ninway email: jn@jn.se";
+        String setStr = "id: 11 name: Jack Ninway email: jn@jn.se";
         //Act
         expectedStr = jn.getCustomerInfo();
 
-        assertEquals(expectedStr, setPerson, "No  match.");
+        assertEquals(expectedStr, setStr, "No  match.");
 
     }
 }
