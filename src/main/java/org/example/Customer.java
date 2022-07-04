@@ -1,26 +1,39 @@
 package org.example;
+import java.util.ArrayList;
 
 public class Customer {
 
+
+    private static int customerSeq = 77;
     private int iD;
     private String name;
     private String email;
+    private ArrayList<BankAccount> bankAccountList = new ArrayList<>();
 
-    public Customer(int iD, String name, String email) {
-        this.iD = iD;
-        this.name = name;
-        this.email = email;
+    public Customer(String name, String email) {
+        setiD(++customerSeq);
+        setName(name);
+        setEmail(email);
     }
     public String getCustomerInfo(){
             return "id: " + iD + " name: " + name + " email: " + email;
     }
-    public int getiD() {
-        return iD;
+    public void addBankAccount(BankAccount bankAcc) {
+        bankAccountList.add(bankAcc);
     }
 
-    public void setiD(int iD) {
-        this.iD = iD;
+    public int getAccountListSize() {
+        return bankAccountList.size();
     }
+
+    public ArrayList<BankAccount> getAllAccounts() {
+        return bankAccountList;
+    }
+
+// Getters & Setters
+    public int getiD() { return iD;}
+
+    public void setiD(int iD) {this.iD = iD;}
 
     public String getName() {
         return name;

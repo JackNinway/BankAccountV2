@@ -5,16 +5,20 @@ public class BankAccount {
     private int accountNr;
     private double balance;
     private Customer aCustomer;
+    private static int accountNrSeq = 7070;
+    private int iD;
 
-    public BankAccount(int accountNr, double balance, Customer aCustomer) {
-        this.accountNr = accountNr;
-        this.balance = balance;
-        this.aCustomer = aCustomer;
+    public BankAccount() {
+        accountNr = accountNrSeq++;
+        setBalance(0);
     }
-
-    public String getAccountInfo(){
-        return "AccountNr: " + accountNr + " Customer: " + aCustomer.getCustomerInfo();
-
+    public String getAccountInfo() {
+        return  "Customer name: "   + aCustomer.getName() +
+                " Account number: " + accountNr +
+                " Balance: "        + balance +
+                " E-mail: "         + aCustomer.getEmail() +
+                " Customer ID: "    + aCustomer.getiD() +
+                " Total accounts: " + (aCustomer.getAllAccounts().size() + 1);
     }
     public double deposit(double amount){
         if(amount < 0)
@@ -25,13 +29,13 @@ public class BankAccount {
 
     // Remove money from balance.
     public double  withdraw(double amount){
-        if(amount > balance){
-            if (amount < balance) {
-                balance -= amount;
-                System.out.printf(" You have:\t  %.2f \n", balance );
-            }
-            else
-                System.out.println("you have not enough money");
+        if(amount > balance)
+            throw new IllegalArgumentException("you have not enough money. INVALID ACTION");
+        if(amount < 0)
+           throw new IllegalArgumentException("Amount should be more than zero. INVALID ACTION");
+        if (amount < balance) {
+            balance -= amount;
+            System.out.printf(" You have:\t  %.2f \n", balance );
         }
         return balance;
     }

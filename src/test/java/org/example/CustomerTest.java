@@ -8,9 +8,9 @@ class CustomerTest {
     void getCustomerInfo() {
 
         //Arrange
-        Customer jn = new Customer(11, "Jack Ninway",  "jn@jn.se");
+        Customer jn = new Customer(78, "Jack Ninway",  "jn@jn.se");
         String expectedStr = "";
-        String setStr = "id: 11 name: Jack Ninway email: jn@jn.se";
+        String setStr = "id: 78 name: Jack Ninway email: jn@jn.se";
         //Act
         expectedStr = jn.getCustomerInfo();
 

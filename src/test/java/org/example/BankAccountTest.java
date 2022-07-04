@@ -5,13 +5,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BankAccountTest {
-    Customer jn = new Customer(11,"Jack Ninway","jn@jn.se");
-    BankAccount aBankAccount = new BankAccount(1111, 999, jn);
+    Customer jn = new Customer("Jack Ninway","jn@jn.se");
+    BankAccount aBankAccount = new BankAccount();
     @Test
     void getAccountInfo() {
         //Arrange
+        aBankAccount.setBalance(999);
         String expectedStr = "";
-        String setStr = "AccountNr: 1111 Customer: id: 11 name: Jack Ninway email: jn@jn.se";
+        String setStr = "AccountNr: 7071 Customer: id: 11 name: Jack Ninway email: jn@jn.se";
         //Act
         expectedStr = aBankAccount.getAccountInfo();
 
@@ -25,6 +26,6 @@ class BankAccountTest {
 
     @Test
     void withdraw() {
-        System.out.println(aBankAccount.withdraw(1111));
+        System.out.println(aBankAccount.withdraw(99));
     }
 }
